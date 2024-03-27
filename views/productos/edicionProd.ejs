@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <form action="/productos/<%= editProductos.id %>?_method=PATCH" method="POST">
+         
+            <div> 
+                <label for="marca">Marca</label><br>
+                <input class="ingresodato" value="<%= editProductos && editProductos.marca %>"  type="text" id="marca" name="marca" required>
+             </div>        
+            <div>
+                <label for="modelo">Modelo</label><br>
+                <input class="ingresodato" value="<%= editProductos && editProductos.modelo %>" type="text" id="modelo" name="modelo" required>
+            </div> 
+            <div>
+                <label for="precio">Precio</label><br>
+                <input class="ingresodato" value="<%= editProductos && editProductos.precio %>" type="text" id="precio" name="precio" required>
+            </div>
+
+                <div>
+                    <input type="submit" value="Enviar" class = "boton">
+                </div>
+
+                <div>
+                    <a href = "/productos/<%=editProductos.id%>"><button class = "boton">Regresar</button></a>
+                </div>
+                       
+    </form>
+
+    </body>
+</html>

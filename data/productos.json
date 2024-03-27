@@ -1,0 +1,32 @@
+[
+ {
+  "id": 1,
+  "marca": "limpieza",
+  "modelo": "blanqueador",
+  "precio": "300"
+ },
+ {
+  "id": 2,
+  "marca": "ala",
+  "modelo": "dertegente",
+  "precio": "100"
+ },
+ {
+  "id": 3,
+  "marca": "ariel",
+  "modelo": "heroe",
+  "precio": "200"
+ },
+ {
+  "id": 4,
+  "marca": "zorro",
+  "modelo": "cloro",
+  "precio": "500"
+ },
+ {
+  "id": 5,
+  "marca": "Lucas",
+  "modelo": "G 15 y323",
+  "precio": "20000"
+ }
+]
