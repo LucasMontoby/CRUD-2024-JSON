@@ -32,26 +32,31 @@ const productosController = {
     },
 
     update: (req, res) => {
-		let id = req.params.id //El id que nos requiere por la url el usuario
-		let editProductos = productos.find(producto => producto.id == id) //El producto que se va a editar
+        let id = req.params.id; // Obtener el ID del producto de los parámetros de la solicitud
+        let editProductos = productos.find(producto => producto.id == id); // Encontrar el producto que se va a editar
+    
+        // Crear un objeto editado con los datos del formulario de edición
         let editProducto = {
             id: editProductos.id,
-            ...req.body,
             marca: req.body.marca || editProductos.marca,
             modelo: req.body.modelo || editProductos.modelo,
             precio: req.body.precio || editProductos.precio,
-        }
-
-		let nuevoProducto = productos.map(producto => {   // El metodo map nos devuelve un array modificado, lo que quiere decir esto es que 
-													  //Nuestro array de productos se modifica completo con el nuevo producto editado
-			if (producto.id === editProduct.id) {
-				return producto = { ...editProductos };  // Metodo spread operator nos devuelve todo el objeto
-			}
-			    return producto;
-		})
-		fs.writeFileSync(productosFilePath, JSON.stringify(nuevoProducto, null, ' '));
-		res.redirect("/" + editProductos.id)
-	},
+        };
+    
+        // Mapear los productos existentes y reemplazar el producto editado
+        let nuevoProducto = productos.map(producto => {
+            if (producto.id === editProducto.id) {
+                return { ...editProducto }; // Utilizar el objeto editProducto en lugar de editProductos
+            }
+            return producto;
+        });
+    
+        // Escribir la lista actualizada de productos en el archivo JSON
+        fs.writeFileSync(productosFilePath, JSON.stringify(nuevoProducto, null, ' '));
+    
+        // Redireccionar al usuario a la página de detalles del producto actualizado
+        res.redirect("/productos/" + editProductos.id);
+    }, 
 
     destroy: (req, res) => {
 		let id = req.params.id  // Lo mismo que en todas los otros metodos lo primero que capturamos aca es el id

@@ -28,5 +28,11 @@
   "marca": "Lucas",
   "modelo": "G 15 y323",
   "precio": "20000"
+ },
+ {
+  "id": 6,
+  "marca": "papa",
+  "modelo": "udfghiugq2",
+  "precio": "1000"
  }
 ]
